@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spider Tailwind Starter Template</title>
+  </head>
+  <body>
+    <div class="my-4">
+      <h1 class="text-center text-3xl font-bold underline">Home Page</h1>
+
+      <div class="links mt-4 flex items-center justify-center gap-4">
+        <a
+          class="inline-block rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:-rotate-2 hover:scale-110 focus:outline-none focus:ring active:text-indigo-500"
+          href="about.html"
+          >About</a
+        >
+        <!-- Border - Left -->
+
+        <a
+          class="inline-block rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:-rotate-2 hover:scale-110 focus:outline-none focus:ring active:text-indigo-500"
+          href="demo.html"
+          >Demo</a
+        >
+      </div>
+
+      <div class="notes py-4 text-center text-lg text-gray-800">
+        <h3>This starter Have Tailwind & Alpine Installed by default</h3>
+      </div>
+
+      <hr />
+
+      <div
+        x-data="{ showModal: false }"
+        @keydown.window.escape="showModal = false"
+        class="mt-4 text-center"
+      >
+        <h3 class="py-4 text-xl">Modal Example with Tailwind and Alpine js</h3>
+
+        <button
+          @click="showModal = !showModal"
+          class="group relative inline-block text-sm font-medium text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+        >
+          <span class="absolute inset-0 border border-current"></span>
+          <span
+            class="block border border-current bg-white px-12 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1"
+          >
+            Toggle Modal
+          </span>
+        </button>
+
+        <div
+          x-cloak
+          x-show="showModal"
+          x-transition.opacity
+          class="fixed inset-0 bg-slate-900/75"
+        ></div>
+
+        <div
+          x-cloak
+          x-show="showModal"
+          x-transition
+          class="fixed inset-0 z-50 flex items-center justify-center"
+        >
+          <div
+            @click.away="showModal = false"
+            class="mx-auto h-96 w-screen max-w-xl rounded-lg bg-indigo-600"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
